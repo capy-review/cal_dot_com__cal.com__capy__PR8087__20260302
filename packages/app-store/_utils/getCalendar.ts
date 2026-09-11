@@ -7,7 +7,7 @@ import appStore from "..";
 const log = logger.getChildLogger({ prefix: ["CalendarManager"] });
 
 export const getCalendar = async (credential: CredentialPayload | null): Promise<Calendar | null> => {
-  if (!credential || !credential.key) return null;
+  if (!credential) return null;
   let { type: calendarType } = credential;
   if (calendarType?.endsWith("_other_calendar")) {
     calendarType = calendarType.split("_other_calendar")[0];
